@@ -1,0 +1,14 @@
+<hr>
+<input type="button" value="Add Mobile" class="btn btn-primary btn-block" (click)="addMobile()">
+<hr>
+<ul class="list-group" *ngFor="let mobile of mobilesList; let i = index" >
+    <!--<li class="list-group-item list-group-item-action" (click)="showMobileDetails(mobile)" appListItemHighlight >-->
+    <li class="list-group-item" [routerLink]="[i]" routerLinkActive="active">
+        <img [src]="mobile.imgUrl" alt="iPhone" class="img-thumbnail img-responsive" width="50rem">
+        <span >
+             {{mobile.shortDesc}}
+        </span>
+    </li>
+</ul>   
+
+   

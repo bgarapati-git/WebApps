@@ -1,0 +1,87 @@
+<!--<p> my first component</p>
+<br>
+{{name}}
+<p>
+  <app-messages></app-messages>
+</p>
+
+<div app-messages></div> 
+<div class="app-messages" ></div>
+
+<hr>-->
+
+<!--<input type="button" id="btnAdd" value="Contact Component" (click)="Add()">
+<input type="text" id="txtName"  (keydown) = "onKeyPress($event)" [value]="values">
+<input type="text" id="txtTwoway"  [(value)]="values">  Two way binding-->
+
+<!--<p></p>
+{{componentCalled}}
+<p></p>
+{{values}}-->
+
+ <div class="container">
+            <!--first bar-->
+            <div class="row bg-primary text-white">
+                <span class="col-md-12">
+                  <p style="float:left;padding-left:4px;padding-top: 8px">  Profile </p>
+                  <p style="float:right;padding-right:4px;padding-top: 8px">  Home </p>
+                 </span>
+            </div>
+            <!--end of first bar-->
+
+            <!--second bar-->
+            <div class="row">
+              <span class="col-sm-2">
+                <input type="button" (click)="loadEmployees()" value="Load Employees">
+                <p></p>
+                 <input type="button" (click)="clearEmployees()" value="Clear">               
+              </span>
+              <span class="col-sm-10">
+                <table  class=" table-bordered col-sm-12 table-hover">
+                  <thead>
+                    <tr>
+                      <th class="table-primary">Select</th>                 
+                      <th class="table-primary">Employee Id</th>
+                      <th class="table-primary">Name</th>
+                      <th class="table-primary">Department</th>
+                      <th class="table-primary">Designation</th>
+                      <th class="table-primary">Role</th>
+                      <th class="table-primary">Supervisor</th>    
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let employee of employees;let i = index" [style.color]="employee.dept == 'QEA' ? 'red' : 'black'">
+                      <td><input id="chkEmp"type="checkbox" value="{{i}}" (click)="getSelectedRow($event)"></td>
+                      <td>{{employee.id}}</td>
+                      <td>{{employee.name}}</td>
+                      <td>{{employee.dept}}</td>
+                      <td>{{employee.desig}}</td>
+                      <td>{{employee.supervisor}}</td>
+                      <td>{{employee.role}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </span>  
+            </div>
+            <!--end of second bar-->
+            <div class="row bg-secondary text-white">
+              {{selectedRow}}
+            </div>
+
+            <div class="row"> 
+                <input type="button" value="Display Details" (click)="displayPwdDetails(); componentCalled = !componentCalled">
+
+            </div>
+            <p *ngIf="componentCalled"> 
+                <li *ngFor="let pwd of passwords; let i = index" 
+                [ngStyle] = "{backgroundColor: i >= 4 ? 'blue' : 'transparent'}"
+                [ngClass] = "{'white-text' : i >= 4}"
+                > 
+                  {{pwd}}
+                </li>
+            </p>
+</div>
+
+
+
+

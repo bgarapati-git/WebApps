@@ -1,0 +1,14 @@
+
+<div *ngIf = "cartItems.length !=0; else msgTemplate">
+    <ul class="list-group" *ngFor="let cartItem of cartItems">
+        <li class="list-group-item">
+            <img src="{{cartItem.imgUrl}}" alt="" class="img-thumbnail">
+            {{cartItem.shortDesc}} -  {{cartItem.longDesc}}
+        </li>
+    </ul>
+</div>
+
+<ng-template #msgTemplate>
+    <p>Please add items to cart</p>
+</ng-template>
+    

@@ -1,0 +1,44 @@
+<p>mobile-add works!</p>
+
+<form [formGroup]="newMobileForm" (ngSubmit)="onSubmit()">  
+    <div class="form-group">
+        <label for="brand">Name</label>
+        <select class="form-control" id="brand" formControlName="brand">
+            <option value="apple">Apple</option>
+            <option value="android">Android</option>
+        </select> 
+    </div>
+    <div class="form-group">
+        <label for="name">Model</label>
+        <input type="text" class="form-control" id="model" formControlName="model">
+        <span class="help-block" *ngIf="!newMobileForm.get('model').valid && newMobileForm.get('model').touched">
+            Please enter valid value..
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="shortDesc">Short Description</label>
+        <input type="text" class="form-control" id="shortDesc" formControlName="shortDesc">
+    </div>
+    <div class="form-group">
+        <label for="longDesc">Long Description</label>
+        <input type="text" class="form-control" id="longDesc" formControlName="longDesc">
+    </div>
+    <div class="form-group">
+        <label for="imgUrl">Image Url</label>
+        <input type="text" class="form-control" id="imgUrl" formControlName="imgUrl">       
+        <span>
+            <img [src] ="newMobileForm.value.imgUrl" alt="" class="img-thumbnail">
+        </span> 
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled] = "!newMobileForm.valid">Submit</button>
+    
+    <div formArrayName="dControls">
+        <label for="hobbies">Add Control Dynamically</label>
+        <button type="button" (click)="addControl()" class="btn btn-primary">Add Control</button>
+         <div *ngFor="let units of getDynamicControls; let i = index" class="form-group">
+            <input type="text"  [formControlName]="i" classn="form-control">      
+       </div>
+    </div>
+
+    
+</form>

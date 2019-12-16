@@ -1,0 +1,33 @@
+<p>{{text}}</p>
+
+<form (ngSubmit) = "onSubmit()" #f="ngForm">  
+    <div class="form-group">
+        <label for="brand">Name</label>
+        <select class="form-control" id="brand" name="brand" [ngModel]="mobile.company" required #brand="ngModel">
+            <option value="apple">Apple</option>
+            <option value="android">Android</option>
+        </select> 
+        <!--<input type="text" class="form-control" id="brand" name="brand" [ngModel]="defaultText" required #brand="ngModel">-->
+        <span class="help-block" *ngIf="!brand.valid && brand.touched">Please enter Brand Name</span>
+    </div>
+    <div class="form-group">
+        <label for="name">Model</label>
+        <input type="text" class="form-control" id="model" name="model" [ngModel]="mobile.model" required>
+    </div>
+    <div class="form-group">
+        <label for="shortDesc">Short Description</label>
+        <input type="text" class="form-control" id="shortDesc"  name="shortDesc" [ngModel]="mobile.shortDesc" required>
+    </div>
+    <div class="form-group">
+        <label for="longDesc">Long Description</label>
+        <input type="text" class="form-control" id="longDesc" name="longDesc" [ngModel]="mobile.longDesc" required>
+    </div>
+    <div class="form-group">
+        <label for="imgUrl">Image Url</label>
+        <input type="text" class="form-control" id="imgUrl" name="imgUrl" [ngModel]="mobile.imgUrl" #imgUrl>        
+    </div>
+    <div class="form-group">
+        <img [src]="imgUrl.value" alt="phone" class="img-responsive" width="50rem">
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Submit</button>
+</form>

@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-3">
+        <!--<app-mobiles-list  [mobilesList]="mobiles"></app-mobiles-list>-->
+        <app-mobiles-list ></app-mobiles-list>        
+    </div>
+    <div class="col-md-9">
+        <!--<app-mobile-detail >-->
+            <!--below tags are to test the <ng-content> i.e. content projection in the app-mobile-detail component-->
+            <!--<div class="p">{{mobiles[0].shortDesc}}</div>
+            <input type="button" class="btn bg-primary">   -->
+        <!--</app-mobile-detail>-->
+        <router-outlet></router-outlet>
+    </div>
+</div>
