@@ -4,7 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-messages',
   // selector: '[app-messages]',
   // selector: '.app-messages',
-  templateUrl: './messages.component.html'
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements OnInit {
 
